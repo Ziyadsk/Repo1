@@ -1,63 +1,58 @@
-"the best .vimrc config ever :) "
+"the best .vimrc config ever lol :) "
 "*************************************************************************************"
 let base16colorspace=256  " Access colors present in 256 colorspace
-"color stuff to support leflow"
-"activate line numbers" 
+set t_Co=256
+
+"setting the bgcolor 
+set background=dark
+
+"set the enconding 
+set encoding=utf8
+
+"always activate line numbers" 
 :set nu
-"set also relative numebers"
+
+"also set relative numbers"
 :set relativenumber
+
 "highlight the search"
 set hlsearch
-"""experimental gui colors stuff
-""set termguicolor 
-""setting the background to dark "
-set background=dark
-"set ignore case 
 
-set ic 
-"let g:quantum_black = 1
-"something about the termguicolor
-"if has("termguicolors")
-""		    set termguicolors
-"endif
-"settings for the GUI
-set guioptions-=r
-set guioptions-=l
-"Choosing the colorscheme"
-"colorscheme gruvbox
-"quantum 
-"vimbrant
-"luna-term
-"pride
-"lucius 
-"Tomorrow-Night-Eighties  
-"desertEx 
-
-"setting cuandrsor  line highlight"
-"color of search highlighting(bg)
+"colors of search highlighting(bg & fg)
 hi Search cterm=NONE ctermfg=White  ctermbg=73
 
-"setting the fonts 
+"setting the background to dark "
+set background=dark
 
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 11
+"set ignore case 
+set ic 
 
 "set inc search (better hilighting of the s result)"
 set incsearch
+
+
 " Space to toggle folds.
 "nnoremap <Space> za
-vnoremap <Space> za
-"set buffers to hide without prompting (more relax)
+"vnoremap <Space> za
+
+"set buffers to hide without prompting (more chill)
 set hidden 
+
+
 "active mouse usage"
 set mouse=a
 
-"nice menu to spell stuff"
+"Activate wildmenu "
 set wildmenu
-"weird stuff just to test : make invisible caracters visible "
-"*"*"*"*"*"set list
+
+
+"listchars :set list"
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-"wraps and stuff (uniC caracter) 
+"wraps and stuff (unic caracter) 
 set showbreak=↪
+
+
+
 "set indentation
 set tabstop=4
 set smartindent 
@@ -67,52 +62,270 @@ set shiftwidth=4
 
 "having a window tilte"
 set title
-" Sudo to write
+
+"Sudo to write(when you want to change a Read-Only file ) 
 cnoremap w!! w !sudo tee % >/dev/null
 
-"************************"MAPPING  or giving button some functions to do :"
+"Setting the colorscheme
+if has('gui_running')
+    colorscheme material-theme
+    "solarized8_light_low
+else
+
+    colorscheme vimbrant
+    "luna-term
+
+endif
+
+
+
+
+"disable scrollbars in gvim/macvim 
+set guioptions-=r
+set guioptions-=l
+
+"setting the gvim /macvim fonts 
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 11
+
+
+
+
+
+"************************"MAPPING  or giving button some functions to do :) "
 "1) -- first section about leader KEY " 
+let mapleader="," 
 
-let mapleader=","
+"save
+map <leader>s :w<CR> 
 
-map <leader>s :w<CR>
-map <leader>q :wq <CR>
-map <C-space>:set paste i <S-insert><esc>:set nopaste 
-map <leader>t :TagbarToggle <CR>
+"write and quit 
+map <leader>q :wq <CR>  
+
+"tagbar toggle
+map <leader>t :TagbarToggle <CR>  
+
+"source the current file
 map <leader>v :source % <CR>
+
+"undo tree toggle 
 map <leader>u :UndotreeToggle <CR>
+
+"NERDtree toggle
 map <leader>a :NERDTreeToggle <CR>
+ 
+"ctrlP plugin
 nmap <leader>, :CtrlPBuffer<CR>
-nmap <C-t> :tabnew <CR>
-nmap <C-c> :
+
+
+
 "2)other mapping 
 
- nnoremap <C-j> :lnext<CR>
- nnoremap <C-k> :lprevious<CR> 
- nmap <C-a> :NERDTreeToggle <CR>
- nnoremap <cr> :noh <esc>
- nmap S i<CR> <esc>
+"add new tab 
+nmap <C-t> :tabnew <CR>
 
-""OTHER MMAPPING !"
- nmap <C-h> :bp <CR>
- map <F2> :tabnew<CR>
- nmap <C-l> :bn <CR>
-map <F5> :tabnext <F5>
-map <F6> :tabprev <F6>
+"enter command mode 
+nmap <C-c> :
+
+"Syntastic plugins (next & previous error) 
+nnoremap <C-j> :lnext<CR>
+nnoremap <C-k> :lprevious<CR> 
+
+"toggle NERDtree
+nmap <C-a> :NERDTreeToggle <CR>
+
+"deactivate search highlight
+nnoremap <cr> :noh <esc>
+
+"return / next line
+nmap S i<CR> <esc>
+
+"previous buffer 
+nmap <C-h> :bp <CR>
+
+"next buffer
+nmap <C-l> :bn <CR>
+
 "Mapping to Magic mode auto 
  nnoremap / /\v
  vnoremap / /\v
- nmap <S-up> <C-W>k
- nmap <S-down> <C-W>j
- nmap <S-right> <C-W><right>
- nmap <S-left> <C-W><left>
- nmap <tab> :tabnext <CR>
- nmap <S-tab> :tabp <CR>
- "nnoremap <S-up> ddkP
- nnoremap <S-down> ddjp
-" inoremap <S-right> <ESC>daWelpi 
 
-"NERDtre 
+"shifting between windows
+nmap <S-up> <C-W>k
+nmap <S-down> <C-W>j
+nmap <S-right> <C-W><right>
+nmap <S-left> <C-W><left>
+
+
+"cycling tabs
+nmap <tab> :tabnext <CR>
+nmap <S-tab> :tabp <CR>
+
+
+" Move visual block
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+
+"Set to auto read when a file is changed from the outside"
+set autoread
+
+"set comand bar height "
+set cmdheight=1
+
+"highlight the match caracteres"
+set showmatch 
+
+
+"do not make BACKUP/swap" 
+:set nobackup
+:set noswapfile
+
+"activate airline/Powerline fonts/icons
+let g:airline_powerline_fonts = 1
+set laststatus=2
+"enables vim_airline to have the upper tab_bar 
+let g:airline#extensions#tabline#enabled = 1 
+
+
+
+
+
+"""" (**********VIM PLUG SECTION************** INCLUDING ALL MY PLUGINS) "
+
+call plug#begin()
+"Plug 'https://github.com/Rip-Rip/clang_complete'
+Plug 'https://github.com/edkolev/promptline.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
+Plug 'https://github.com/jelera/vim-javascript-syntax'
+Plug 'https://github.com/hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim'
+
+"""trusted And Approved Plugin :) "
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'https://github.com/mhinz/vim-startify' 
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'Raimondi/delimitMate' 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar' "show tags and functions/variables
+Plug 'https://github.com/mbbill/undotree', { 'on' : 'UndotreeToggle'}
+Plug 'vim-scripts/colorizer' " colrize hexadecimal color notation 
+Plug 'https://github.com/tpope/vim-repeat' "repeat last commands
+Plug 'syntastic' "syntax checker 
+Plug 'honza/vim-snippets'
+Plug 'https://github.com/rstacruz/sparkup'
+Plug 'https://github.com/Shougo/neocomplete.vim' "The best completion ever !
+Plug 'https://github.com/Shougo/neosnippet.vim' "snippets w/ neocomplete 
+Plug 'https://github.com/Shougo/neosnippet-snippets' "repo of snips 
+Plug 'godlygeek/tabular'
+"Plug 'itspriddle/vim-jquery'
+Plug 'bling/vim-airline' "airline status bar
+Plug 'vim-airline/vim-airline-themes' "airline themes 
+Plug 'https://github.com/edkolev/tmuxline.vim'
+"Plug 'https://github.com/wookiehangover/jshint.vim'
+Plug 'https://github.com/tpope/vim-commentary' "fast way to comment /uncomment
+Plug 'https://github.com/terryma/vim-multiple-cursor' 
+Plug 'https://github.com/justinmk/vim-syntax-extra'
+
+call plug#end() 
+
+
+"neocomplete settings  
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_close_preview = 1 
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+let g:neocomplete#auto_completion_start_length=2
+" AutoComplPop like behavio
+let g:neocomplete#enable_auto_select = 1
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+
+" <TAB>: tab_completion for neocomplete
+
+"imap <expr><tab>  pumvisible() ? "\<CR>" : "<CR>"
+"imap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" SuperTab like snippets behavior.
+imap <expr><tab>
+            \ pumvisible() ? "<CR><tab>" : 
+            \ neosnippet#expandable_or_jumpable() ?
+            \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+smap <expr><tab> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+
+
+"youCompleteMe stuff, but i dont use it anymore
+"youCompleteMe Var"
+"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"close preview 	after completion : 
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"minimum of caracters to trigger completion . 
+
+
+
+"undotree settings 
+
+if has("persistent_undo")	   
+    set undodir=~/.undodir/
+
+    set undofile
+endif 
+
+
+"Enable conceal markers 
+
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+"
+
+
+
+"omnifunc completion
+
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set completefunc=syntaxcomplete#Complete
+
+
+"setting the tags folder
+set tags=~/Downloads/ctags58/
+
+
+""set tmux_preset for tmuxline
+let g:tmuxline_preset = 'tmux' 
+
+
+""syntastic Settigs 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=3
+
+
+"multiple cursor settings 
+"
+let g:multi_cursor_next_key='<C-Y>'
+let g:multi_cursor_prev_key='<C-,>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"NERDtree Plugin icons 
 
 let g:NERDTreeDirArrowExpandable = '•'
 ""'►'
@@ -142,201 +355,4 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 :hi Directory guifg=#ff0000 ctermfg=73
 
-"Set to auto read when a file is changed from the outside"
-set autoread
-
-"set comand bar height "
-set cmdheight=1
-
-"highlight the match caracteres"
-set showmatch 
-
-"do not make BACKUP ; just chill with git and stuff "
-:set nobackup
-:set noswapfile
-
-"formmating the statusline"
-:set laststatus=2
-"commented for later ==> "set statusline=\ %{}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-let g:airline_powerline_fonts = 1
-
-
-"""" (**********VIM PLUG SECION**************)chi men la dose mavet gbal vhemtou apropos de vim-plug "
-call plug#begin()
-"Plug 'https://github.com/Rip-Rip/clang_complete'
-Plug 'https://github.com/edkolev/promptline.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
-Plug 'https://github.com/jelera/vim-javascript-syntax'
-Plug 'https://github.com/hail2u/vim-css3-syntax'
-""Chi Sure and amazing ! 
-"""exprimental
-Plug 'othree/html5.vim'
-
-"""trusted And Approved Plugin s==== :) "
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-surround'
-Plug 'https://github.com/mhinz/vim-startify'
-Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'Raimondi/delimitMate'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'majutsushi/tagbar'
-Plug 'https://github.com/mbbill/undotree', { 'on' : 'UndotreeToggle'}
-Plug 'vim-scripts/colorizer'
-Plug 'https://github.com/tpope/vim-repeat'
-Plug 'syntastic'
-Plug 'honza/vim-snippets'
-Plug 'https://github.com/rstacruz/sparkup'
-Plug 'https://github.com/Shougo/neocomplete.vim' "The best completion ever !
-Plug 'https://github.com/Shougo/neosnippet.vim' "snippets w/ neocomplete 
-Plug 'https://github.com/Shougo/neosnippet-snippets' "repo of snips 
-Plug 'godlygeek/tabular'
-"Plug 'itspriddle/vim-jquery'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/edkolev/tmuxline.vim'
-"Plug 'https://github.com/wookiehangover/jshint.vim'
-Plug 'https://github.com/tpope/vim-commentary'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
-Plug 'https://github.com/justinmk/vim-syntax-extra'
-call plug#end() 
-
-
-"neoComp 
-let g:neocomplete#enable_at_startup = 1
-
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#auto_completion_start_length=2
-" AutoComplPop like behavio
-let g:neocomplete#enable_auto_select = 1
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-" <TAB>: completion.i
-
-
-"imap <expr><tab>  pumvisible() ? "\<CR>" : "<CR>"
-"imap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" SuperTab like snippets behavior.
-imap <expr><tab>
-            \ pumvisible() ? "<CR><tab>" : 
-            \ neosnippet#expandable_or_jumpable() ?
-            \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-smap <expr><tab> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-
-"set the enconding 
-set encoding=utf8
-
-"enables vim_airline to have upper tab_bar 
-
-let g:airline#extensions#tabline#enabled = 1 
-"youCompleteMe Var"
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-
-
-let g:neocomplete#enable_auto_close_preview = 1 
-
-"close preview 	after completion : 
-let g:ycm_autoclose_preview_window_after_completion = 1
-"minimum of caracters to trigger completion . 
-
-"stuff to work with undotree 
-
-if has("persistent_undo")	   
-    set undodir=~/.undodir/
-
-    set undofile
-endif 
-"for conceal markers 
-
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-"
-"tryng the omnfunc stuff 
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-set completefunc=syntaxcomplete#Complete
-
-
-"""""
-"let g:tabgar_ctags_bin='/Users/Ziyad/Downloads/ctags58/'
-
-"let g:clang_library_path='/Users/Ziyad/.vim/plugged/clang_complete/plugin/clang/'
-
-"set tag=/usr/local/Cellar/ctags/5.8_1/share/man/man1/ctags.1
-
-set tags=~/Downloads/ctags58/
-
-"" Command mode mappings.
-
-"cnoremap <C-a> <Home>
-"cnoremap <C-e> <End>
-
-"""
-" Sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
-
-
-" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-""set cursorline 
-
-set t_Co=256
-
-let g:tmuxline_preset = 'tmux' 
-
-let g:promptline_preset = {
-            \'a'    : [ '$(hostname)' ],
-            \'b'    : [ '$(whoami)' ],
-            \'c'    : [ '$(pwd)' ],
-            \'options': {
-            \'left_sections' : [ 'b', 'a' ],
-            \'right_sections' : [ 'c' ],
-            \'left_only_sections' : [ 'b', 'a', 'c' ]}}
-
-
-""syntastic Settigs 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height=3
-
-
-"multiple cursor settings 
-"
-let g:multi_cursor_next_key='<C-Y>'
-let g:multi_cursor_prev_key='<C-,>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-
-"tips for solarized 
-let g:solarized_termcolors=256
-
-if has('gui_running')
-    colorscheme material-theme
-    "solarized8_light_low
-else
-
-    colorscheme vimbrant
-
-    "luna-term
-endif
 
