@@ -82,8 +82,12 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Make all urxvts use a 1-pixel border:
+ for_window [class="Urxvt"] border pixel 10
 
-new_window pixel 2
+
+new_window pixel 3
+
 set $workspace1 " Browser"
 set $workspace2 " Terminals"
 set $workspace3 " Devellopper corner"
@@ -171,30 +175,32 @@ smart_gaps on
 # finds out, if available)
 bar {
 
-       separator_symbol " "
+
+       separator_symbol "  "
      #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
     status_command i3blocks -c ~/.config/i3blocks.conf
    # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
 
     colors {
-       background $bg-color
+
+background $bg-color
 separator #ffffff
 #  border             background         text
-  focused_workspace  #ffffff  #ffffff  #000000
+  focused_workspace  #ffffff   #000  #ffffff
   inactive_workspace #000000  #000000 $inactive-text-color
   urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-   }
-   
-     position top 
   
   }
- 
+     position top    
+  
+  }
+
 #color -conf
              
               #  set $bg-color          
-              set $bg_special #00FFAA 
+              set $bg_special #0FA 
               set $bg-color #000000
-              set $inactive-bg-color #2d2d2d
+              set $inactive-bg-color #000000
              # set $inactive-bg-color   #2f343f
                 set $text-color         #ffffff
                 set $inactive-text-color #efefef
@@ -204,12 +210,14 @@ separator #ffffff
 
 # window colors
 #                       border              background         text                 indicator
- client.focused          #000000             #ffffff   #text-color                        #006699
+ client.focused          #ffffff            #000               #FFFFFF              #00AAAA
 
- client.unfocused        $incative-bg-color $inactive-bg-color $inactive-text-color  #006699
+ client.unfocused        #000000 #000000 $inactive-text-color  #006699
  client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #006699
  client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #006699
  client.background #ffffff
+
+
 # Multimedia Keys
 # increase volume
                 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
@@ -234,35 +242,46 @@ no_focus [window_role="pop-up"]
 # Screen brightness controls
                 bindsym F3 exec xbacklight -inc 5 # increase screen brightness
                 bindsym F2 exec xbacklight -dec 5 # decrease screen brightnes
-# start dmenu (a program launcher)
+
+#start dmenu (a program launcher)
 #dmenu_run
 
 
-# bindsym $mod+d exec rofi -show run -width  -fg "#B0E670" -bg "#14161F" -hlfg "#14161F" -hlbg "#B0E670" -bc "#14161F" -location 0 -lines 10 -bw 1 -font "Source Code Pro Powerline 16" -padding 340 -separator-style none -opacity "90"
 
-
-
-bindsym $mod+d exec rofi -show run -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
+bindsym $mod+d exec rofi -show run  -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
 
 bindsym $mod+z exec rofi -show window -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
 
 bindsym $mod+Shift+d exec dmenu_run
 #setting the wallpapers
 
-#lock 
-                bindsym F12 exec ~/.config/i3status/lock.sh 
-                exec_always compton -f 
+#lock              
+bindsym F12 exec ~/.config/i3status/lock.sh 
 
-bindsym $mod+Shift+F12 exec  sh -c "echo mem > /sys/power/state"
+#start compton              
+exec_always compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 
+
+#sleep
+bindsym $mod+Shift+F12 exec sudo sh -c "echo mem > /sys/power/state"
+
+#i3lock-fancy 
 bindsym $mod+F12 exec i3lock-fancy -p  -t "Unlock Me If You Can " 
-#bindsym ins exec scrot -e 'mv $f ~/Pires/screenshots'
+
+
+#take a screenshot
 bindsym $mod+F5 exec scrot -e 'mv $f ~/Pictures/screenshots'
-                
-                exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/legend.jpg
-                exec --no-startup-id xautolock -time 8 -locker i3lock-fancy -t "Wake Me Up" &
- exec --no-startup-id i3-msg 'workspace $workspace2 exec URxvt; workspace $workspace1; exec chromium 
+
+
+#setting the wallpaper 
+exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/legend.jpg
+
+#starting dunst
+ exec --no-startup-id dunst               
+
+#starting i3-msg
+ exec --no-startup-id i3-msg 
  
-   
+#reading the .Xressources  
 exec xrdb ~/.Xresources
 
 

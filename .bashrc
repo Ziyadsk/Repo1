@@ -1,6 +1,7 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export LC_ALL="en_US.UTF-8"
+alias xrel="xrdb ~/.Xresources"
 alias vi='vim'
 alias vimo='vim -u NONE -U NONE -N -i NONE'
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
@@ -15,6 +16,9 @@ alias tma="tmux attach -t"
 alias grep='grep --color=always' 
 alias i3lock='./.config/i3status/lock.sh'
 alias pac="sudo pacman"
+
+#colors 
+
 function prompt {
   local BLACK="\[\033[101m\]"
   local BLACKBOLD="\[\033[1;30m\]"
@@ -34,7 +38,7 @@ function prompt {
   local WHITEBOLD="\[\033[1;37m\]"
   local RESETCOLOR="\[\e[00m\]"
 
-  export PS1="$GREENBOLD\u $CYAN\$ $WHITE"
+  export PS1="$GREENBOLD\u $CYAN\$ $RESETCOLOR"
 }
 prompt
 
@@ -69,8 +73,7 @@ export BASH_IT="/home/kylo/.bash_it"
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
 export BASH_IT_THEME='powerline-multiline'
-
-# (Advanced): Change this to the name of your remote repo if you
+# (Advanced): Change is to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
 

@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/etc/netctl/examples'
 let g:netrw_dirhist_2='/home/kylo/MauriVote'
 let g:netrw_dirhist_3='/home/kylo/.config'
+let g:netrw_dirhist_4='/home/kylo/dotfiles'
+let g:netrw_dirhist_5='/home/kylo/dotfiles/.vim'
+let g:netrw_dirhist_6='/home/kylo/.bash_it/themes'

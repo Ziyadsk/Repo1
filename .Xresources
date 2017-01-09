@@ -1,0 +1,89 @@
+!new config for rofi #new config for rofi 
+! Use extended color scheme
+ rofi.color-enabled:                  true
+! ! Color scheme for normal row
+ rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34
+! ! Color scheme for urgent row
+ rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
+! ! Color scheme for active row
+ rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
+! ! Color scheme windowx
+ rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863
+! ! Separator style (none, dash, solid)
+x! rofi.separator-style:                solid
+
+Xft.dpi: 96.0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.antialias: true
+Xft.rgba: rgb
+
+!*FONT:        xft:Inconsolata For Powerline:style=bold:antialias=true
+!URxvt.font:    xft:Fantasque\ Sans\ Mono:size=12:style=bold:antialias=true
+
+!URxvt.font:    xft::size=14:style=bold:antialias=true
+
+!r.theme: DMZ-black
+
+URxvt.font:  xft:Source Code Pro Semibold:style=bold:pixelsize=16px:antialias=true
+URxvt.letterSpace:         -1
+
+*background: #ffffff
+*foreground: #000000
+! ! black
+ *color0: #000000
+ *color8: #000000
+! ! red
+ *color1:#A54242
+ *color9: #CC6666
+! ! green
+ *color2: #00FF00 
+ *color10:#00FF00
+
+! ! yellow
+ *color3: #DE935F
+ *color11: #F0C674
+! ! blue
+ *color4: #5F819D
+ *color12: #81A2BE
+! ! magenta
+ *color5: #85678F
+ *color13: #B294BB
+! ! cyan
+ *color6: #5E8D87
+ *color14: #8ABEB7
+! ! white
+ *color7: #ffffff
+ *color15: #C5C8C6
+
+URxvt.transparent : true 
+URxvt.shading : 30
+URxvt*fading:              30
+URxvt.internalBorder:      0
+URxvt.externalBorder:      0
+
+
+URxvt.scrollBar:           false
+
+!
+ URxvt.perl-ext-common:     matcher,resize-font,foo
+
+!
+ URxvt.keysym.F11:          perl:fullscreen:switch
+!
+ URxvt.resize-font.smaller: C-Down
+ URxvt.resize-font.bigger:  C-Up
+!
+ 
+ URxvt.url-launcher:        /usr/bin/chromium
+ URxvt.keysym.M-Delete:     perl:matcher:list
+ URxvt.colorUL:             #006699
+! Contact GitHub API Training Shop Blog About
+URxvt.cursorBlink : 1 
+URxvt.cursorUnderline : 1 
+URxvt.cursorColor : cyan 
+URxvt*saveLines: 60000
+URxvt.background: #000000 
+URxvt.foreground :white
+!URxvt.tintColor : yellow 
+
