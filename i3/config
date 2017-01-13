@@ -5,8 +5,9 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
-font pango:Lato 9
+font pango:Source Code Pro for Powerline Semibold 9
 
+#font pango:Iosevka bold 12
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 
@@ -47,7 +48,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+sEmicolon move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -176,8 +177,9 @@ smart_gaps on
 bar {
 
 
-       separator_symbol "  "
+       separator_symbol " "
      #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
+     #status_command python3 ~/Downloads/powerline-develop/powerline/bindings/i3/powerline-i3.py
     status_command i3blocks -c ~/.config/i3blocks.conf
    # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
 
@@ -186,33 +188,33 @@ bar {
 background $bg-color
 separator #ffffff
 #  border             background         text
-  focused_workspace  #ffffff   #000  #ffffff
-  inactive_workspace #000000  #000000 $inactive-text-color
+  focused_workspace  #000000 #000 #1188AA
+  inactive_workspace #000000  #000000 #4d4d4d
   urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
   
   }
      position top    
-  
+ 
   }
 
 #color -conf
              
               #  set $bg-color          
-              set $bg_special #0FA 
+              set $bg_special #FFFFFF 
               set $bg-color #000000
               set $inactive-bg-color #000000
-             # set $inactive-bg-color   #2f343f
+            set $inactive-bg-color   #2f343f
                 set $text-color         #ffffff
-                set $inactive-text-color #efefef
+               # set $inactive-text-color #2f343f
                #set $text-color          ##f3f4f5
-               # set $inactive-text-color ##676E7D
+                #set $inactive-text-color ##676E7D
                 set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
- client.focused          #ffffff            #000               #FFFFFF              #00AAAA
+ client.focused          #FFFFFF           #000               #FFFFFF              #00AAAA
 
- client.unfocused        #000000 #000000 $inactive-text-color  #006699
+ client.unfocused        #000000 #000000  #777777  #006699
  client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #006699
  client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #006699
  client.background #ffffff
@@ -273,7 +275,7 @@ bindsym $mod+F5 exec scrot -e 'mv $f ~/Pictures/screenshots'
 
 
 #setting the wallpaper 
-exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/legend.jpg
+exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/w_home.png
 
 #starting dunst
  exec --no-startup-id dunst               
