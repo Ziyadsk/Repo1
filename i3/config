@@ -155,10 +155,10 @@ mode "resize" {
         bindsym semicolon resize grow width 10 px or 10 ppt
 
 # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
 
 # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -188,7 +188,7 @@ bar {
 background $bg-color
 separator #ffffff
 #  border             background         text
-  focused_workspace  #000000 #000 #1188AA
+  focused_workspace  #000000 #2d2d2d #70CCEE
   inactive_workspace #000000  #000000 #4d4d4d
   urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
   
@@ -250,7 +250,7 @@ no_focus [window_role="pop-up"]
 
 
 
-bindsym $mod+d exec rofi -show run  -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
+bindsym $mod+d exec rofi -show run  -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "96"
 
 bindsym $mod+z exec rofi -show window -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
 
@@ -275,7 +275,7 @@ bindsym $mod+F5 exec scrot -e 'mv $f ~/Pictures/screenshots'
 
 
 #setting the wallpaper 
-exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/w_home.png
+exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/_q5h19c-vwu-fineas-anton.jpg   
 
 #starting dunst
  exec --no-startup-id dunst               

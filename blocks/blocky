@@ -1,0 +1,6 @@
+#!/bin/bash
+    
+    if [[ $0 == "/bin/vlc"  ]];then 
+            echo "$1"
+
+

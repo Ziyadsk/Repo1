@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+echo $(free -h | grep -i 'MEM' | cut -d " " -f 20) 
+

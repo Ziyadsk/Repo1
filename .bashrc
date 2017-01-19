@@ -37,8 +37,8 @@ function prompt {
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
   local RESETCOLOR="\[\e[00m\]"
-
-  export PS1="$GREENBOLD\u $CYAN\$ $RESETCOLOR"
+  local BACKWHITE="\033[7m "
+  export PS1="$GREENBOLD \u $CYAN\$ $RESETCOLOR"
 }
 prompt
 
@@ -72,7 +72,7 @@ export BASH_IT="/home/kylo/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='powerline'
+#export BASH_IT_THEME='zitron'
 # (Advanced): Change is to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'

@@ -1,18 +1,27 @@
 !new config for rofi #new config for rofi 
-! Use extended color scheme
- rofi.color-enabled:                  true
-! ! Color scheme for normal row
- rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34
-! ! Color scheme for urgent row
- rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
-! ! Color scheme for active row
- rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
-! ! Color scheme windowx
- rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863
-! ! Separator style (none, dash, solid)
-x! rofi.separator-style:                solid
+/* ! Use extended color scheme */
+/*  rofi.color-enabled:                  true */
+/* ! ! Color scheme for normal row */
+/*  rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #FAC863 ,  #1B2B34 */
+/* ! ! Color scheme for urgent row */
+/*  rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34 */
+/* ! ! Color scheme for active row */
+/*  rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34 */
+/* ! ! Color scheme windowx */
+/*  rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863 */
+/* ! ! Separator style (none, dash, solid) */
+/* x! rofi.separator-style:                solid */Xft.dpi: 96.0
 
-Xft.dpi: 96.0
+rofi.color-enabled: true
+
+!                  bg       border   separator
+                  rofi.color-window: #1d2021, #a89984, #a89984
+
+!                  !                  bg       fg       bg-alt   hl-bg    hl-fg
+                  rofi.color-normal: #1d2021, #ebdbb2, #282828, #504945, #fbf1c7
+                  rofi.color-active: #d79921, #1d2021, #d79921, #fabd2f, #1d2021
+                  rofi.color-urgent: #cc241d, #1d2021, #cc241d, #fb4934, #1d2021
+
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.antialias: true

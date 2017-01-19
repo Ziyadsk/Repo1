@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/kylo/.fonts'
-let g:netrw_dirhist_2='/home/kylo'
-let g:netrw_dirhist_3='/home/kylo/.config/yabar'
+let g:netrw_dirhist_cnt =0

@@ -1,0 +1,4 @@
+#!/bin/bash 
+
+moussa=$(iw dev wlp2s0 link | grep -i 'ssid' | cut -d " "  -f 2 )
+echo $moussa
