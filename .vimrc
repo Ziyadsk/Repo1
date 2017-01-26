@@ -72,7 +72,8 @@ if has('gui_running')
     "solarized8_light_low
 else
 
-    colorscheme vimbrant
+    colorscheme vimbrant 
+    "vimbrant
     "luna-term
 
 endif

@@ -11,39 +11,49 @@
 
 dir=$(dirname $0)
 #source $dir/util.sh
-
+icon=""
 full=""
 short=""
-color="#ffff4d"
-status=0
-
+color="#00FF00"
+#status=0
 
 URL='http://www.accuweather.com/fr/sn/dakar/297442/weather-forecast/297442'
+
+
 SITE="$(curl -s "$URL")"
 
-weather="$(echo "$SITE" | awk -F\' '/acm_RecentLocationsCarousel\.push/{print $14 }'| head -1)"
-temp="$(echo "$SITE" | awk -F\' '/acm_RecentLocationsCarousel\.push/{print $12"°" }'| head -1)"
+temp="$(curl -s $URL | grep -i 'weather' | grep -i 'acm' | grep -i 'dakar' | cut -d ':' -f 7 | cut -c 2,3  )"
+temp+="°"
 
+weather="$(curl -s $URL | grep -i 'weather' | grep -i 'acm' | grep -i 'dakar' | grep -i 'text' | cut -d "\"" -f 4)"
 
-if [[ $weather == *thunder* || $weather == *Thunder* ]]; then
-    icon=""
-    color="#ffdb40"
-else
-    if [[ $weather == *rain* || $weather == *Rain* ]]; then
-        icon=""
-        color="#40dbFF"
-    else
-        if [[ $weather == *cloud* || $weather == *Cloud* ]]; then
-            icon=""
-            color="#AADDCC"
-        else
-            icon=""
+# weather="$(echo "$SITE" | awk -F\' '/acm_RecentLocationsCarousel\.push/{print $14 }'| head -1)"
+# temp="$(echo "$SITE" | awk -F\' '/acm_RecentLocationsCarousel\.push/{print $12"°" }'| head -1)"
+
+nightime="$(date| cut -d " " -f 4 | cut -d ":" -f 1 )"
+
+ if [[ $temp < 30 && $temp > 25 ]]; then
+     icon=""
+      color="#ffdb40"
+  fi 
+     if [[ $temp < 24 && $temp > 18 ]]; then
+         icon=""
+         color="#40dbFF"
+     fi 
+         if [[  $temp < 15 && $temp > 0 ]]; then
+             icon=""
+             color="#22AAFF"
+         fi 
+         
+         if [[ $temp < 30 && $temp > 25 ]]; then
+         
+             icon=""
+         
         fi
-    fi
-fi
+ 
 
 
-full="$icon $temp"
+full="$icon $temp $weather"
 short="$temp"
 
 

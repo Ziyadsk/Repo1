@@ -10,7 +10,9 @@
 /* ! ! Color scheme windowx */
 /*  rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863 */
 /* ! ! Separator style (none, dash, solid) */
-/* x! rofi.separator-style:                solid */Xft.dpi: 96.0
+/* x! rofi.separator-style:                solid *
+*/ 
+Xft.dpi: 96
 
 rofi.color-enabled: true
 
@@ -33,7 +35,7 @@ Xft.rgba: rgb
 !URxvt.font:    xft::size=14:style=bold:antialias=true
 
 !r.theme: DMZ-black
-
+!URxvt.font :xft:Monospace :style=regular:pixelsize=14:antialias=true
 URxvt.font:  xft:Source Code Pro Semibold:style=bold:pixelsize=15px:antialias=true
 URxvt.letterSpace:         -1
 

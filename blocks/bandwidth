@@ -75,7 +75,7 @@ rx_kib=$(( $rx_rate >> 10 ))
 if [[ "$rx_rate" -gt 1048576 ]]; then
   printf '%sM' "`echo "scale=1; $rx_kib / 1024" | bc`"
 else
-  echo -n "${rx_kib}K   "
+  echo -n "${rx_kib}K "
 fi
 
 echo -n " "

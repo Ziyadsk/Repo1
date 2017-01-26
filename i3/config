@@ -7,6 +7,8 @@ set $mod Mod4
 
 font pango:Source Code Pro for Powerline Semibold 9
 
+#font pango:Open Sans 9
+
 #font pango:Iosevka bold 12
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -89,18 +91,18 @@ bindsym $mod+a focus parent
 
 new_window pixel 3
 
-set $workspace1 " Browser"
-set $workspace2 " Terminals"
-set $workspace3 " Devellopper corner"
+set $workspace1 " 1:  "
+set $workspace2 "2:  "
+set $workspace3 "3:  "
 #" Dev"
 #" Dev"
-set $workspace4 " Social" 
-set $workspace5 " Files" 
-set $workspace6 " Mail" 
-set $workspace7 " Torrents" 
-set $workspace8 " Movies" 
-set $workspace9 " VM"
-set $workspace10 " Music"
+set $workspace4 "4:  " 
+set $workspace5 "5:  " 
+set $workspace6 "6:  " 
+set $workspace7 "7:  " 
+set $workspace8 "8:  " 
+set $workspace9 "9:  "
+set $workspace10 "10:  "
 
 #touchpad gestures 
  #swipe between workspaces
@@ -139,7 +141,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Nte machi ?? sure 5ouya ?? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Where are you going my friend ? ' -b 'I need to go :(' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -169,7 +171,7 @@ bindsym $mod+r mode "resize"
 
 #gaps
 gaps inner 7 
-gaps outer 3
+gaps outer 0
 smart_gaps on 
 
 #Start i3bar to display a workspace bar (plus the system information i3status
@@ -178,17 +180,20 @@ bar {
 
 
        separator_symbol " "
-     #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
-     #status_command python3 ~/Downloads/powerline-develop/powerline/bindings/i3/powerline-i3.py
-    status_command i3blocks -c ~/.config/i3blocks.conf
-   # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
+       #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
+       #status_command python3 ~/Downloads/powerline-develop/powerline/bindings/i3/powerline-i3.py
+       i3bar_command i3bar -t
+       status_command i3blocks -c ~/.config/i3blocks.conf
+       # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
 
     colors {
 
 background $bg-color
-separator #ffffff
+statusline #FFFFFF
+separator #fefeee
 #  border             background         text
-  focused_workspace  #000000 #2d2d2d #70CCEE
+  focused_workspace  #000 #00000 #FFFFFF
+# #70CCEE 
   inactive_workspace #000000  #000000 #4d4d4d
   urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
   
@@ -197,24 +202,26 @@ separator #ffffff
  
   }
 
+
+
 #color -conf
-             
+         
               #  set $bg-color          
               set $bg_special #FFFFFF 
               set $bg-color #000000
               set $inactive-bg-color #000000
-            set $inactive-bg-color   #2f343f
-                set $text-color         #ffffff
-               # set $inactive-text-color #2f343f
-               #set $text-color          ##f3f4f5
-                #set $inactive-text-color ##676E7D
-                set $urgent-bg-color     #E53935
+              set $inactive-bg-color   #2f343f
+              set $text-color         #ffffff
+              # set $inactive-text-color #2f343f
+              #set $text-color          ##f3f4f5
+              #set $inactive-text-color ##676E7D
+              set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
- client.focused          #FFFFFF           #000               #FFFFFF              #00AAAA
+ client.focused          #FFFFFF           #2d2d2d      #FFFFFF              #00AAAA
 
- client.unfocused        #000000 #000000  #777777  #006699
+ client.unfocused        #000000 #000000  #777777  #FFFFFF
  client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color #006699
  client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #006699
  client.background #ffffff
