@@ -68,8 +68,10 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 "Setting the colorscheme
 if has('gui_running')
-    colorscheme material-theme
+    colorscheme blackboard
+    "material-theme
     "solarized8_light_low
+    AirlineTheme base16_default
 else
 
     colorscheme vimbrant 
@@ -86,8 +88,11 @@ set guioptions-=r
 set guioptions-=l
 
 "setting the gvim /macvim fonts 
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 11
-
+set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 10
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set guioptions-=L  "remove left-hand scroll bar
 
 
 
@@ -193,6 +198,9 @@ let g:airline#extensions#tabline#enabled = 1
 """" (**********VIM PLUG SECTION************** INCLUDING ALL MY PLUGINS) "
 
 call plug#begin()
+Plug 'https://github.com/Shougo/vimproc.vim'
+Plug 'https://github.com/m2mdas/phpcomplete-extended'
+Plug 'https://github.com/joonty/vdebug'
 "Plug 'https://github.com/Rip-Rip/clang_complete'
 Plug 'https://github.com/edkolev/promptline.vim'
 Plug 'pangloss/vim-javascript'

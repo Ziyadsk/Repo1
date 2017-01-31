@@ -1,8 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/kylo/.config/dunst'
-let g:netrw_dirhist_2='/home/kylo/music'
-let g:netrw_dirhist_3='/home/kylo/.gnome'
-let g:netrw_dirhist_4='/home/kylo/.gnome/apps'
-let g:netrw_dirhist_5='/home/kylo/.gnome'
-let g:netrw_dirhist_6='/home/kylo/.gnome2/accels'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/kylo/dotfiles'

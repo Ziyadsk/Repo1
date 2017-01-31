@@ -6,6 +6,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 
 font pango:Source Code Pro for Powerline Semibold 9
+#font pango:PragmataPro 10
 
 #font pango:Open Sans 9
 
@@ -100,9 +101,10 @@ set $workspace4 "4:  "
 set $workspace5 "5:  " 
 set $workspace6 "6:  " 
 set $workspace7 "7:  " 
-set $workspace8 "8:  " 
+set $workspace8 "8:  " 
 set $workspace9 "9:  "
-set $workspace10 "10:  "
+set $workspace10 "10:  "
+# "
 
 #touchpad gestures 
  #swipe between workspaces
@@ -167,7 +169,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+
 bindsym $mod+r mode "resize"
+
+
+
+#Open applications on specific workspaces
+assign [class="Chromium"] $workspace1
+assign [class="Thunar"] $workspace5
+assign [class="Thunderbird"] $workspace6
+assign [class="vlc"] $workspace10
+assign [class="gvim"] $workspace3
+
 
 #gaps
 gaps inner 7 
@@ -177,28 +190,28 @@ smart_gaps on
 #Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-
-
+        
        separator_symbol " "
+        
        #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
        #status_command python3 ~/Downloads/powerline-develop/powerline/bindings/i3/powerline-i3.py
-       i3bar_command i3bar -t
+       #i3bar_command i3bar -t
        status_command i3blocks -c ~/.config/i3blocks.conf
        # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
 
     colors {
 
-background $bg-color
-statusline #FFFFFF
-separator #fefeee
-#  border             background         text
-  focused_workspace  #000 #00000 #FFFFFF
-# #70CCEE 
-  inactive_workspace #000000  #000000 #4d4d4d
-  urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-  
+        background $bg-color
+        statusline #FFFFFF
+        separator #fefeee
+        #  border             background         text
+          focused_workspace  #000000 #000000 #FFFFFF
+        # #70CCEE 
+          inactive_workspace #000000  #000000 #4d4d4d
+          urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+          
   }
-     position top    
+     position top 
  
   }
 
@@ -257,18 +270,20 @@ no_focus [window_role="pop-up"]
 
 
 
-bindsym $mod+d exec rofi -show run  -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "96"
+bindsym $mod+d exec rofi -show run  -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "96"
 
-bindsym $mod+z exec rofi -show window -width 1400 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 10 -bw 1 -font "Source Code Pro for Powerline 16" -padding 340 -separator-style none  -opacity "95"
+bindsym $mod+z exec rofi -show window -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "95"
 
-bindsym $mod+Shift+d exec dmenu_run
+bindsym $mod+Shift+d exec morc_menu
+#dmenu_run
 #setting the wallpapers
 
 #lock              
 bindsym F12 exec ~/.config/i3status/lock.sh 
 
 #start compton              
-exec_always compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 
+
+exec --no-startup-id compton --config /home/kylo/.config/compton.conf 
 
 #sleep
 bindsym $mod+Shift+F12 exec sudo sh -c "echo mem > /sys/power/state"
@@ -282,10 +297,36 @@ bindsym $mod+F5 exec scrot -e 'mv $f ~/Pictures/screenshots'
 
 
 #setting the wallpaper 
-exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/_q5h19c-vwu-fineas-anton.jpg   
+exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/deadmau5.png 
 
 #starting dunst
  exec --no-startup-id dunst               
+
+
+#getting out 
+
+bindsym $mod+Delete mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#lock_blur
+exec --no-startup-id xautolock -time 10 -locker blurlock
+
+
+
+
 
 #starting i3-msg
  exec --no-startup-id i3-msg 

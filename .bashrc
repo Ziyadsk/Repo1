@@ -44,22 +44,22 @@ prompt
 
 # Setting PATH for Python 3.4
 # The orginal version is saved in .bash_profile
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
+#PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+#export PATH
 
 
 
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
 #source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-if [ -d "$HOME/.local/bin" ]; then
-        PATH="$HOME/.local/bin:$PATH"
-fi
+# if [ -d "$HOME/.local/bin" ]; then
+#         PATH="$HOME/.local/bin:$PATH"
+# fi
 
-if [ "$TERM" = "xterm" ]; then
-	  export TERM=xterm-256color
-fi
-  alias tmux='tmux -2'  # for 256color
+# if [ "$TERM" = "xterm" ]; then
+# 	  export TERM=xterm-256color
+# fi
+#   alias tmux='tmux -2'  # for 256color
   alias tmux='tmux -u'  # to get rid of unicode rendering problem
 
 
@@ -68,7 +68,7 @@ fi
 
 
 # Path to the bash it configuration
-export BASH_IT="/home/kylo/.bash_it"
+#export BASH_IT="/home/kylo/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -108,6 +108,20 @@ export SCM_CHECK=true
 # Load Bash It
 #source ~/enhancd-master/init.sh
 source ~/.bash/mysql-colorize/mysql-colorize.bash
-source $BASH_IT/bash_it.sh
+#source $BASH_IT/bash_it.sh
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+
+
+function _update_ps1() {
+        PS1="$(/home/kylo/xvpn/powerline-shell-master/powerline-shell.py --mode patched --cwd-mode fancy )\n$CYAN·→ "
+        }
+
+        if [ "$TERM" != "linux" ]; then
+                PROMPT_COMMAND="_update_ps1;  $PROMPT_COMMAND"
+            fi
+
+
+
+#source ~/xvpn/oh-my-git-master/prompt.sh
