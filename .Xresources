@@ -2,7 +2,7 @@
 /* ! Use extended color scheme */
   rofi.color-enabled:                  true 
 ! ! ! Color scheme for normal row 
-  rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #efefef ,  #1B2B34
+  rofi.color-normal:                   argb:00000000,  #D8DEE9 , argb:00000000,  #efefef , #1B2B34
 ! ! ! Color scheme for urgent row 
   rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34 
 ! ! ! Color scheme for active row 
@@ -37,8 +37,9 @@ Xft.rgba: rgb
 !r.theme: DMZ-black
 !URxvt.font :xft:Monospace :style=regular:pixelsize=14:antialias=true
 URxvt.font:  xft:Source Code Pro Semibold:style=bold:pixelsize=13px:antialias=true
-!URxvt.font:  xft:PragmataPro:style=Regular:pixelsize=17px:antialias=true
+!URxvt.font:  xft:Consolas for Powerline:style=Regular:pixelsize=17px:antialias=true
 !URxvt.font:  xft:Courier style=Regular:pixelsize=15px:antialias=true
+!URxvt.font:  xft:Monaco for Powerline:stylebold:pixelsize=12x:antialias=true
 
 URxvt.letterSpace:         -1
 
@@ -85,8 +86,8 @@ URxvt.scrollBar:           false
 !
  URxvt.keysym.F11:          perl:fullscreen:switch
 !
- URxvt.resize-font.smaller: esc
- URxvt.resize-font.bigger:  S-Up
+ URxvt.Resize-font.smaller: esc
+ URxvt.Resize-font.bigger:  S-Up
 !
  
  URxvt.url-launcher:        /usr/bin/chromium

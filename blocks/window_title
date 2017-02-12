@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+xtitle | awk 'NF>1{print $(NF)}'

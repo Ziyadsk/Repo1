@@ -68,10 +68,11 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 "Setting the colorscheme
 if has('gui_running')
-    colorscheme blackboard
+    colorscheme nova
+    "blackboard
     "material-theme
+
     "solarized8_light_low
-    AirlineTheme base16_default
 else
 
     colorscheme vimbrant 
@@ -88,6 +89,7 @@ set guioptions-=r
 set guioptions-=l
 
 "setting the gvim /macvim fonts 
+"set guifont=Courier\ 20
 set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 10
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
@@ -198,12 +200,13 @@ let g:airline#extensions#tabline#enabled = 1
 """" (**********VIM PLUG SECTION************** INCLUDING ALL MY PLUGINS) "
 
 call plug#begin()
+Plug 'https://github.com/PotatoesMaster/i3-vim-syntax'
+Plug 'https://github.com/StanAngeloff/php.vim'
 Plug 'https://github.com/Shougo/vimproc.vim'
 Plug 'https://github.com/m2mdas/phpcomplete-extended'
 Plug 'https://github.com/joonty/vdebug'
 "Plug 'https://github.com/Rip-Rip/clang_complete'
 Plug 'https://github.com/edkolev/promptline.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/othree/javascript-libraries-syntax.vim'
 Plug 'https://github.com/jelera/vim-javascript-syntax'
 Plug 'https://github.com/hail2u/vim-css3-syntax'
@@ -308,7 +311,7 @@ set completefunc=syntaxcomplete#Complete
 
 
 "setting the tags folder
-set tags=~/Downloads/ctags58/
+set tags=/usr/bin/ctags58/
 
 
 ""set tmux_preset for tmuxline

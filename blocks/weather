@@ -32,18 +32,21 @@ weather="$(curl -s $URL | grep -i 'weather' | grep -i 'acm' | grep -i 'dakar' | 
 
 nightime="$(date| cut -d " " -f 4 | cut -d ":" -f 1 )"
 
- if [[ $temp < 30 && $temp > 25 ]]; then
+ if [[ $temp < 30 && $temp > 24 ]]; then
      icon=""
       color="#ffdb40"
   fi 
-     if [[ $temp < 24 && $temp > 18 ]]; then
+
+  if [[ $temp < 24 && $temp > 18 ]]; then
          icon=""
          color="#40dbFF"
      fi 
-         if [[  $temp < 15 && $temp > 0 ]]; then
+    
+     if [[  $temp < 18 && $temp > 0 ]]; then
              icon=""
-             color="#22AAFF"
-         fi 
+             color="#aadddd"
+       
+        fi 
          
          if [[ $temp < 30 && $temp > 25 ]]; then
          

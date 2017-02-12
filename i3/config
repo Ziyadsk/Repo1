@@ -1,5 +1,6 @@
-#complete reference!
+#Ziyadsk i3_Config
 
+#setting the mod 
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -7,19 +8,8 @@ set $mod Mod4
 
 font pango:Source Code Pro for Powerline Semibold 9
 #font pango:PragmataPro 10
+#font pango: PragmataPro bold 10
 
-#font pango:Open Sans 9
-
-#font pango:Iosevka bold 12
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -34,6 +24,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
 
 # change focus
 bindsym $mod+j focus left
@@ -87,13 +78,15 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Make all urxvts use a 1-pixel border:
- for_window [class="Urxvt"] border pixel 10
+for_window [class="Urxvt"] border pixel 1
 
-
+#everynew Window will have 3px border
 new_window pixel 3
 
-set $workspace1 " 1:  "
-set $workspace2 "2:  "
+
+set $workspace1 "1:  "
+set $workspace2 "2:  "
+#" "
 set $workspace3 "3:  "
 #" Dev"
 #" Dev"
@@ -101,15 +94,19 @@ set $workspace4 "4:  "
 set $workspace5 "5:  " 
 set $workspace6 "6:  " 
 set $workspace7 "7:  " 
-set $workspace8 "8:  " 
+set $workspace8 "8: " 
+#"  "
+#" " 
 set $workspace9 "9:  "
 set $workspace10 "10:  "
-# "
 
-#touchpad gestures 
- #swipe between workspaces
+#switch between workspaces
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
 
 #toggle between workspaces 
 bindsym $mod+n focus output left
@@ -177,20 +174,20 @@ bindsym $mod+r mode "resize"
 #Open applications on specific workspaces
 assign [class="Chromium"] $workspace1
 assign [class="Thunar"] $workspace5
+assign [class="eclipse"] $workspace3
+assign [class="phpstorm"] $workspace3
 assign [class="Thunderbird"] $workspace6
 assign [class="vlc"] $workspace10
 assign [class="gvim"] $workspace3
+assign [class="xchat"] $workspace8
 
-
-#gaps
+#setting window gaps
 gaps inner 7 
 gaps outer 0
 smart_gaps on 
 
-#Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#Start i3bar to display a workspace bar (plus the system information i3status # finds out, if available)
 bar {
-        
        separator_symbol " "
         
        #status_command ~/.config/i3/lemonbar/i3_lemonbar.py
@@ -199,36 +196,28 @@ bar {
        status_command i3blocks -c ~/.config/i3blocks.conf
        # status_command python ~/.local/lib/python3.5/site-packages/powerline/bindings/i3/powerline-i3.py
 
-    colors {
+       colors {
+                 background #000000
+                 #  border             background         text
+                 focused_workspace  #000000 #000000 #ffffff
+                 inactive_workspace #000000  #000000 #4d4d4d
+                 urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+              }
 
-        background $bg-color
-        statusline #FFFFFF
-        separator #fefeee
-        #  border             background         text
-          focused_workspace  #000000 #000000 #FFFFFF
-        # #70CCEE 
-          inactive_workspace #000000  #000000 #4d4d4d
-          urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-          
+position top 
+
   }
-     position top 
- 
-  }
+                 #  set $bg-color          
+                 set $bg_special #FFFFFF 
+                 set $bg-color #000000
+                 set $inactive-bg-color #000000
+                 set $inactive-bg-color   #2f343f
+                 set $text-color         #ffffff
+                 # set $inactive-text-color #2f343f
+                 #set $text-color          ##f3f4f5
+                 #set $inactive-text-color ##676E7D
+                 set $urgent-bg-color     #E53935
 
-
-
-#color -conf
-         
-              #  set $bg-color          
-              set $bg_special #FFFFFF 
-              set $bg-color #000000
-              set $inactive-bg-color #000000
-              set $inactive-bg-color   #2f343f
-              set $text-color         #ffffff
-              # set $inactive-text-color #2f343f
-              #set $text-color          ##f3f4f5
-              #set $inactive-text-color ##676E7D
-              set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
@@ -240,11 +229,10 @@ bar {
  client.background #ffffff
 
 
-# Multimedia Keys
 # increase volume
-                bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+                bindsym F10 exec amixer -q set Master 5%+ unmute
 # decrease volume
-                bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+                bindsym F9 exec amixer -q set Master 5%- unmute
 # mute volume
                 bindsym XF86AudioMute exec amixer -q set Master mute
 # pause / play / next / previous
@@ -254,29 +242,30 @@ bar {
 
 #hide ugly edges green bar 
                hide_edge_borders both
+
 #no focus when new 
-no_focus [window_role="pop-up"]
+                no_focus [window_role="pop-up"]
+
 # Media player controls
                 bindsym XF86AudioPause exec playerctl pause
 
-#brightness control 
 
-# Screen brightness controls
+#Screen brightness controls
                 bindsym F3 exec xbacklight -inc 5 # increase screen brightness
                 bindsym F2 exec xbacklight -dec 5 # decrease screen brightnes
 
-#start dmenu (a program launcher)
-#dmenu_run
+
+
+                bindsym $mod+d exec rofi -show run  -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "100"
+
+                bindsym $mod+z exec rofi -show window -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "95"
 
 
 
-bindsym $mod+d exec rofi -show run  -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "96"
+#execting morc_menu(a sophisticated program luncher (makes categories of programs))  
+                bindsym $mod+Shift+d exec morc_menu
 
-bindsym $mod+z exec rofi -show window -width 700 -fg "#b320f1" -bg "#1122dd" -hlfg "#b32091" -hlbg "#1023ff" -bc "#ff22ff" -location 0 -lines 13 -bw 0 -font "Source Code Pro for Powerline 16" -padding 5 -separator-style none  -opacity "95"
 
-bindsym $mod+Shift+d exec morc_menu
-#dmenu_run
-#setting the wallpapers
 
 #lock              
 bindsym F12 exec ~/.config/i3status/lock.sh 
@@ -297,10 +286,10 @@ bindsym $mod+F5 exec scrot -e 'mv $f ~/Pictures/screenshots'
 
 
 #setting the wallpaper 
-exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/deadmau5.png 
+exec --no-startup-id feh --bg-fill ~/Downloads/Images_downloaded/leaves.jpg
 
 #starting dunst
- exec --no-startup-id dunst               
+exec --no-startup-id dunst               
 
 
 #getting out 
@@ -324,12 +313,8 @@ mode "$mode_system" {
 #lock_blur
 exec --no-startup-id xautolock -time 10 -locker blurlock
 
-
-
-
-
 #starting i3-msg
- exec --no-startup-id i3-msg 
+exec --no-startup-id i3-msg 
  
 #reading the .Xressources  
 exec xrdb ~/.Xresources
