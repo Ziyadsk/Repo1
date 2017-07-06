@@ -7,3 +7,4 @@
 
 ## Screenshots
 ![screen1](screenshots/vim.png)
+![screen2](screenshots/music_flow.png)
