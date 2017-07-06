@@ -68,14 +68,14 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 "Setting the colorscheme
 if has('gui_running')
-    colorscheme nova
+    colorscheme luna
     "blackboard
     "material-theme
-
+    AirlineTheme dark
     "solarized8_light_low
 else
 
-    colorscheme vimbrant 
+    colorscheme luna-term 
     "vimbrant
     "luna-term
 
@@ -90,7 +90,7 @@ set guioptions-=l
 
 "setting the gvim /macvim fonts 
 "set guifont=Courier\ 20
-set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-bold\ 10
+set guifont=Fantasque\ Sans\ Mono\ 10
 :set guioptions-=m  "remove menu bar
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
@@ -121,7 +121,7 @@ map <leader>u :UndotreeToggle <CR>
 "NERDtree toggle
 map <leader>a :NERDTreeToggle <CR>
  
-"ctrlP plugin
+"ctrlP plugi
 nmap <leader>, :CtrlPBuffer<CR>
 
 
@@ -188,8 +188,10 @@ set showmatch
 :set noswapfile
 
 "activate airline/Powerline fonts/icons
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 set laststatus=2
+"status bar theme 
+let g:airline_theme='sol'
 "enables vim_airline to have the upper tab_bar 
 let g:airline#extensions#tabline#enabled = 1 
 
@@ -213,14 +215,12 @@ Plug 'https://github.com/hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim'
 
 """trusted And Approved Plugin :) "
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'https://github.com/mhinz/vim-startify' 
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate' 
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar' "show tags and functions/variables
 Plug 'https://github.com/mbbill/undotree', { 'on' : 'UndotreeToggle'}
 Plug 'vim-scripts/colorizer' " colrize hexadecimal color notation 
@@ -231,14 +231,12 @@ Plug 'https://github.com/rstacruz/sparkup'
 Plug 'https://github.com/Shougo/neocomplete.vim' "The best completion ever !
 Plug 'https://github.com/Shougo/neosnippet.vim' "snippets w/ neocomplete 
 Plug 'https://github.com/Shougo/neosnippet-snippets' "repo of snips 
-Plug 'godlygeek/tabular'
 "Plug 'itspriddle/vim-jquery'
 Plug 'bling/vim-airline' "airline status bar
 Plug 'vim-airline/vim-airline-themes' "airline themes 
 Plug 'https://github.com/edkolev/tmuxline.vim'
 "Plug 'https://github.com/wookiehangover/jshint.vim'
 Plug 'https://github.com/tpope/vim-commentary' "fast way to comment /uncomment
-Plug 'https://github.com/terryma/vim-multiple-cursor' 
 Plug 'https://github.com/justinmk/vim-syntax-extra'
 
 call plug#end() 
@@ -357,7 +355,7 @@ call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow','#151515')
 call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'green', 'none', '#00FF00', '#fff')
+call NERDTreeHighlightFile('html', 'green', 'none', '#00FF00', '#ffffff')
 call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', '#10BBFF', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', '#ff0000', '#151515')

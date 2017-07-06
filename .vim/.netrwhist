@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/kylo/dotfiles'
-let g:netrw_dirhist_2='/home/kylo/xvpn'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/kylo/.vim/plugged/vim-airline/plugin'
+let g:netrw_dirhist_2='/etc/samba'
+let g:netrw_dirhist_3='/etc/rc_keymaps'

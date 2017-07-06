@@ -35,10 +35,12 @@ Xft.rgba: rgb
 !URxvt.font:    xft::size=14:style=bold:antialias=true
 
 !r.theme: DMZ-black
+
+!URxvt.font :xft:Fantasque Sans Mono:style=regular:pixelsize=15:antialias=true
 !URxvt.font :xft:Monospace :style=regular:pixelsize=14:antialias=true
 URxvt.font:  xft:Source Code Pro Semibold:style=bold:pixelsize=13px:antialias=true
 !URxvt.font:  xft:Consolas for Powerline:style=Regular:pixelsize=17px:antialias=true
-!URxvt.font:  xft:Courier style=Regular:pixelsize=15px:antialias=true
+/* URxvt.font:  xft:Fira Mono Medium for Powerline:style=Medium:pixelsize=12px:antialias=true */
 !URxvt.font:  xft:Monaco for Powerline:stylebold:pixelsize=12x:antialias=true
 
 URxvt.letterSpace:         -1
@@ -103,8 +105,9 @@ URxvt.cursorColor : cyan
 
 URxvt*saveLines: 60000
 
-URxvt.background: #000000 
+URxvt.background: #1E262E 
+
 
 URxvt.foreground :white
 !!URxvt.tintColor : yellow 
-
+urxvt*blurRadius: 10

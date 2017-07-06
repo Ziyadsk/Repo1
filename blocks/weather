@@ -32,7 +32,7 @@ weather="$(curl -s $URL | grep -i 'weather' | grep -i 'acm' | grep -i 'dakar' | 
 
 nightime="$(date| cut -d " " -f 4 | cut -d ":" -f 1 )"
 
- if [[ $temp < 30 && $temp > 24 ]]; then
+ if [[ $temp < 50 && $temp > 24 ]]; then
      icon=""
       color="#ffdb40"
   fi 

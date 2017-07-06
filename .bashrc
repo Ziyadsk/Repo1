@@ -7,7 +7,6 @@ alias vimo='vim -u NONE -U NONE -N -i NONE'
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias ls='ls -GFh --color'
 alias ll='ls -lash --color'
-alias ddu='sh ~/Dropbox/Development/Themes\ WordPress/dobsondev-underscores/ddunderscores-osx.sh'
 alias sl="ls" 
 alias t="tmux"
 alias tls="tmux ls"
