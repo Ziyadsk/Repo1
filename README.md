@@ -1,6 +1,9 @@
 # dotfiles 
-### Contains configuration files about : 
+#### Contains configuration files about : 
 - vim 
 - i3
 - i3 blocks status bar 
-- bash
+- bash 
+
+## Screenshots
+![screen1](screenshots/vim.png)
